@@ -7,4 +7,6 @@ const petLength = config.getNumber("petLength") ?? 2;
 
 const randomPet = new random.RandomPet("random-pet", {
   length: petLength
-})
+});
+
+export const petName = randomPet.id;
