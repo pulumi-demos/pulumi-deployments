@@ -4,7 +4,7 @@ Super simple stack to show a pulumi deployment example.
 # Project and Depoyments Layout.
 There are two stacks set up in Pulumi that map to given branches:
 * dev stack => dev branch
-* prod stac => main branch
+* prod stack => main branch
 
 # Demos
 ## Deploy from Pulumi UI
