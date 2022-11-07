@@ -1,3 +1,5 @@
 name: simple-stack
 description: A minimal TypeScript Pulumi program
 runtime: nodejs
+config:
+  petLength: 3
