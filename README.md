@@ -2,7 +2,9 @@
 Repo to hold code for demonstrating Pulumi Deployments features.
 
 # Demos
-List of demos that can be done.
+Overview of possible demos are listed below.
+
+Check the given folder's README for that example's specifics.
 
 ## Deploy from the Pulumi Service UI
 * Go to given stack 
