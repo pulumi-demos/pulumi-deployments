@@ -2,4 +2,8 @@ name: simple-stack
 description: A minimal TypeScript Pulumi program
 runtime: nodejs
 # config:
+<<<<<<< HEAD
+#   simple-stack:petLength: 3
+=======
 #   simple-stack:petLength: "4"
+>>>>>>> main
