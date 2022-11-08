@@ -1,4 +1,4 @@
 import * as pulumi from "@pulumi/pulumi";
 const config = new pulumi.Config();
 
-export const petLength = config.getNumber("petLength") ?? 2
+export const petLength = 4
