@@ -2,6 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import { readFileSync }from 'fs';
 
 const config = new pulumi.Config();
+
 export const petLength = config.getNumber("petLength") ?? 3
 
 // Pulumi Deployments also lets you add pre-run code in the UI (unders the Settings->Deploy tab for the given stack).
