@@ -11,15 +11,15 @@ Check the given folder's README for that example's specifics.
 * Click the Actions button and select the type of action you want.
 
 ## Deploy from Git Push
-* Modify something (e.g. modify a config value) for a given stack.
+* Modify something (e.g. modify a config value in pulumi.yaml).
 * Commit the change directly to the `main` branch.
-  * This will run an update deployment.
+  * This will run an update deployment against the `prod` stack.
 
 ## Pull Request Flow
-* Modify something (e.g. modify a config value) for a given stack.
-* Push the change as a branch.
-  * Nothing will happen.
-* Create a Pull Request.
-  * This will run a `preview` deployment in the service.
+* Modify something (e.g. modify a config value in pulumi.yaml).
+* Push the change as `dev` branch.
+  * This will run a deployment in the service on the `dev` stack.
+* Create a Pull Request from `dev` to `main` branch.
+  * This will run a `preview` deployment in the service on the `prod` stack.
 * Merge the Pull Request to main.
-  * This will run an `update` deployment in the service.
+  * This will run an `update` deployment in the service on the `prod` stack.
