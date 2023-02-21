@@ -2,11 +2,12 @@ import * as random from "@pulumi/random";
 
 import * as config from "./config";
 
-const petLength = config.petLength
+const nameLength = config.petLength
+const namePrefix = config.petNamePrefix
 
 const randomPet = new random.RandomPet("random-pet", {
-  length: petLength,
-  prefix: config.petNamePrefix
+  length: nameLength,
+  prefix: namePrefix
 });
 
 export const petName = randomPet.id;
