@@ -10,7 +10,7 @@ export const petLength = config.getNumber("petLength") ?? 3
 // that is then processed by the pulumi program:
 // echo SOME_STRING_OF_YOUR_CHOOSING > ./pet-name-prefix.txt
 // e.g. echo myprefix > ./pet-name-prefix.txt
-var petNamePrefix
+var petNamePrefix: string
 try {
   petNamePrefix = readFileSync('./pet-name-prefix.txt').toString().trim()
 } catch {
