@@ -17,7 +17,7 @@ exports.handler = async (event, context) => {
 
   let queryParams = event.queryStringParameters
   if (!queryParams) {
-    queryParams = {"message":"New DynamoDB Entry"}
+    queryParams = {"message":"Hello World"}
   }
 
   const eventDetails = {...eventDetailsBase, ...queryParams}
