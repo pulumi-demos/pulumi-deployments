@@ -1,0 +1,6 @@
+name: lambda-eventbridge-dyndb
+runtime: nodejs
+description: A TS Pulumi project that deploys a system consisting of a lambda->eventbridge->lambda->dynamodb architecture.
+config:
+  aws:region: us-east-1
+  lambda-eventbridge-dyndb:apiGwProject: api-gateway

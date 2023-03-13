@@ -1,0 +1,12 @@
+{
+    "name": "lambda-eventbridge-dyndb",
+    "devDependencies": {
+        "@types/node": "^10.17.51"
+    },
+    "dependencies": {
+        "@pulumi/aws": "^5.0.0",
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/pulumiservice": "^0.2.0",
+        "@pulumi/newrelic": "^5.0.0"
+    }
+}
