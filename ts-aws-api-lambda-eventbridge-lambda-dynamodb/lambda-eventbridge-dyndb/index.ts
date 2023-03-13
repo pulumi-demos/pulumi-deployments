@@ -30,12 +30,12 @@ const stackTag = new pulumiService.StackTag("stackTag", {
 });
 
 // The Frontend URL to hit that causes events
-export const apiUrl = frontend.url
+export const clickMeToCreateEvents = frontend.url
 
 // DynamodDB console link to make it easier to demo/test.
 const awsConfig = new pulumi.Config("aws");
 const region = awsConfig.require("region");
-export const EventsTableLink = pulumi.interpolate`https://console.aws.amazon.com/dynamodbv2/home?region=${region}#item-explorer?table=${backend.eventsTableName}`
+export const clickMeToSeeDynamoDbItems = pulumi.interpolate`https://console.aws.amazon.com/dynamodbv2/home?region=${region}#item-explorer?table=${backend.eventsTableName}`
 
 // The URL for New Relic Dashboard
-export const dashboardUrl = dashboard.url
+export const newReliceDashboardUrl = dashboard.url
