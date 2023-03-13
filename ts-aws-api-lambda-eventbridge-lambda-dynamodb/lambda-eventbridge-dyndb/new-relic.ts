@@ -26,6 +26,8 @@ export class Monitor extends pulumi.ComponentResource {
         type: "SIMPLE",
         locationsPublics: ["US_EAST_2"],
       })
+
+      this.url = pulumi.interpolate`https://one.newrelic.com/synthetics-nerdlets/monitor-overview/${monitor.id}?account=${accountId}`
     }
   }
 }
