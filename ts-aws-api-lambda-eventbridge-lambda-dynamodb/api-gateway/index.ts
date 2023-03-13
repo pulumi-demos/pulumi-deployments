@@ -1,5 +1,3 @@
-// Stand up existing resources for the use-case described in the README.
-
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
 import * as aws from "@pulumi/aws";
