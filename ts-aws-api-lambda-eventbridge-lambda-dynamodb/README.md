@@ -2,7 +2,7 @@
 
 The goal is to stand up an infrastructure that demonstrates the following use-case:
 
-- There is a pre-existing API Gateway.
+- I want to deploy the API Gateway in a separate project/stack.
 - I want to stand up a couple of lambda functions, an event bridge bus and a DynamoDB.
 - I want to connect lambda #1 to the API GW.
 - Lambda #1 receieves requests from the API GW and forwards them to the EventBridge

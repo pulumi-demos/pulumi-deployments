@@ -6,6 +6,12 @@ Overview of possible demos are listed below.
 
 Check the given folder's README for that example's specifics.
 
+**WARNING WARNING WARNING**
+To speed up the deployments, the stacks used for these deployment demos are REMOVED from the default policy group. 
+Therefore, no policies are run against these deployments.  
+A possible future to-do would be create a small policy pack and policy group for the deployment demo stacks to show it working.
+
+
 ## Deploy from the Pulumi Service UI
 * Go to given stack 
 * Click the Actions button and select the type of action you want.

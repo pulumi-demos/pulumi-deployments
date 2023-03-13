@@ -27,7 +27,7 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   organization: pulumi.getOrganization(),
   project: pulumi.getProject(),
   stack: pulumi.getStack()
-})
+});
 
 // The Frontend URL to hit that causes events
 export const apiUrl = frontend.url
