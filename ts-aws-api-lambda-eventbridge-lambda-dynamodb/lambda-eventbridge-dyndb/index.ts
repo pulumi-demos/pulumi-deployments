@@ -23,7 +23,7 @@ const dashboard = new Dashboard(nameBase, {appName: appName})
 
 const stackTag = new pulumiService.StackTag("stackTag", {
   name: "DeploymentsDemo",
-  value: "ComplexStack",
+  value: "LambdaEventBridgeDynamoDb",
   organization: pulumi.getOrganization(),
   project: pulumi.getProject(),
   stack: pulumi.getStack()
