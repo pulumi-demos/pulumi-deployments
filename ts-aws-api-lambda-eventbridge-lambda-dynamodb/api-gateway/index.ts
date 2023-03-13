@@ -2,6 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
 import * as aws from "@pulumi/aws";
 
+// Create a base string for naming.
 const nameBase = `${pulumi.getProject()}-${pulumi.getStack()}`
 
 // Set up an API Gateway
