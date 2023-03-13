@@ -3,40 +3,29 @@ import { Input, Output } from "@pulumi/pulumi";
 import * as newrelic from "@pulumi/newrelic";
 import { accountId } from "@pulumi/newrelic/config";
 
-interface DashboardArgs {
-  appName: string;
+interface MonitorArgs {
+  uri: pulumi.Input<string>;
 };
 
-export class Dashboard extends pulumi.ComponentResource {
+export class Monitor extends pulumi.ComponentResource {
   public readonly url: Output<string>;
 
-  constructor(name: string, args: DashboardArgs, opts?: pulumi.ComponentResourceOptions) {
-    super("custom:EventProcessor:Dashboard", name, args, opts)
-    const nameBase = `${args.appName}-${name}`
+  constructor(name: string, args: MonitorArgs, opts?: pulumi.ComponentResourceOptions) {
+    super("custom:EventProcessor:Monitor", name, args, opts)
 
     // Assume no account info provided.
-    this.url = pulumi.interpolate`*** No dashboard URL provided since New Relic account information is missing. ***`
+    this.url = pulumi.interpolate`*** No Monitor provided since New Relic account information is missing. ***`
 
-    // But, if it is, create a dashboard.
+    // Create a synthetic monitor in New Relic for the app if new relic creds are set up
     if (accountId) { 
-      const dashboard = new newrelic.OneDashboard(`${name}-onedashboard`, {
-        name: `${nameBase}-stats`, 
-        permissions: "public_read_only",
-        pages: [{
-                  name: `${nameBase}-stats`, 
-                  widgetMarkdowns: [{title: "Dashboard Notes", row: 1, column: 9, text: "### Helpful Links\n\n* [New Relic One](https://one.newrelic.com)\n* [Developer Portal](https://developer.newrelic.com)"}],
-                  widgetLines: [{
-                    title: `${nameBase} Average Response Time`,
-                    row: 1,
-                    column: 1,
-                    nrqlQueries: [{
-                      accountId: Number(accountId),
-                      query: `SELECT average(duration * 1000) AS 'Response time' FROM Transaction TIMESERIES SINCE 1800 seconds ago EXTRAPOLATE`
-                    }]
-                  }],
-                }],
-      }, {parent: this})
-      this.url = dashboard.permalink
+      const monitor = new newrelic.synthetics.Monitor(`${name}-monitor`, {
+        name: name,
+        uri: args.uri,
+        period: "EVERY_5_MINUTES",
+        status: "ENABLED",
+        type: "SIMPLE",
+        locationsPublics: ["US_EAST_2"],
+      })
     }
   }
 }
