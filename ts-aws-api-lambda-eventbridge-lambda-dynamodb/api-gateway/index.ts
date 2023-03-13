@@ -21,5 +21,6 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   stack: pulumi.getStack()
 });
 
+// Stack outputs
 export const apiGatewayId = apigw.id
 export const apiGatewayName = apigw.name
