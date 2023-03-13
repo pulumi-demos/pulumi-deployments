@@ -12,13 +12,15 @@ const apigw = new aws.apigatewayv2.Api(apiGwName, {
   protocolType: "HTTP",
 });
 
+// Create a stack tag to group related stacks together.
 const stackTag = new pulumiService.StackTag("stackTag", {
   name: "DeploymentsDemo",
-  value: "ComplexStack",
+  value: "LambdaEventBridgeDynamoDb",
   organization: pulumi.getOrganization(),
   project: pulumi.getProject(),
   stack: pulumi.getStack()
 });
 
+// Stack outputs  
 export const apiGatewayId = apigw.id
 export const apiGatewayName = apigw.name
