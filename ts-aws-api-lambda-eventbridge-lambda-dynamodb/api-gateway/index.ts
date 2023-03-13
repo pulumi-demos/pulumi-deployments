@@ -19,7 +19,7 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   organization: pulumi.getOrganization(),
   project: pulumi.getProject(),
   stack: pulumi.getStack()
-})
+});
 
 export const apiGatewayId = apigw.id
 export const apiGatewayName = apigw.name

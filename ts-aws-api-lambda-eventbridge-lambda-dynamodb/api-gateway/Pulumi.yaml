@@ -1,4 +1,4 @@
-name: api-gateway
+name: deployment-api-gateway
 runtime: nodejs
 description: A TS Pulumi project that deploys an AWS API Gateway.
 config:
