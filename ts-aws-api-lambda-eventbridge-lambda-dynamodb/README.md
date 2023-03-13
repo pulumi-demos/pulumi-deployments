@@ -31,7 +31,6 @@ Note: You can find the applicable projects/stacks in the Pulumi Service UI by se
 
 Note: The `deployment-lambda-eventbridge-dyndb` stack outputs some links to demonstrate the working infrastructure.
 
-
 ## Pulumi Service UI Focused Demo
 
 * Go to the desired `deployment-api-gateway` stack and select Actions and run an action.
@@ -47,4 +46,5 @@ Note: The `deployment-lambda-eventbridge-dyndb` stack outputs some links to demo
 * Merge the PR(s).
 * In the Pulumi Service UI see the deployment(s) running for the applicable project(s) to run updates for the `prod` stack.
 * Be sure to destroy the two stack when done.
+
 
