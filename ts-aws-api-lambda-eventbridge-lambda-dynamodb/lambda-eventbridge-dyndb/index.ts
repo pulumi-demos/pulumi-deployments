@@ -6,7 +6,7 @@ import { apiGatewayId, apiGwStageName, appName, nameBase } from "./config";
 import { Backend } from "./backend";
 import { Bus } from "./bus"
 import { Frontend } from "./frontend"
-import { Dashboard } from "./new-relic"
+import { Monitor } from "./new-relic"
 
 const backend = new Backend(nameBase)
 
@@ -19,7 +19,7 @@ const frontend = bus.arn.apply(arn => new Frontend(nameBase, {
   apiGwStageName: apiGwStageName,
 }))
 
-const dashboard = new Dashboard(nameBase, {appName: appName})
+const newRelicMonitor = new Monitor(nameBase, {uri: frontend.url})
 
 const stackTag = new pulumiService.StackTag("stackTag", {
   name: "DeploymentsDemo",
@@ -38,4 +38,4 @@ const region = awsConfig.require("region");
 export const clickMeToSeeDynamoDbItems = pulumi.interpolate`https://console.aws.amazon.com/dynamodbv2/home?region=${region}#item-explorer?table=${backend.eventsTableName}`
 
 // The URL for New Relic Dashboard
-export const newReliceDashboardUrl = dashboard.url
+export const newReliceMonitorUrl = newRelicMonitor.url
