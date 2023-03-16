@@ -1,6 +1,10 @@
 # pulumi-deployments
 Repo to hold code for demonstrating Pulumi Deployments features.
 
+# References
+* [Pulumi Deployments](https://www.pulumi.com/docs/intro/pulumi-service/deployments/)
+* [Pulumi Deployments API](https://www.pulumi.com/docs/reference/deployments-rest-api/)
+
 # Demos
 Overview of possible demos are listed below.
 
