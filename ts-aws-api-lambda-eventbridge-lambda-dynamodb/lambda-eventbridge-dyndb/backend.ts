@@ -22,8 +22,8 @@ export class Backend extends pulumi.ComponentResource {
         type: "N",
       }],
       hashKey: "timestamp",
-      readCapacity: 5,
-      writeCapacity: 5,
+      readCapacity: 4,
+      writeCapacity: 4,
     }, {parent: this});
 
     // Backend Lambda Processor 
