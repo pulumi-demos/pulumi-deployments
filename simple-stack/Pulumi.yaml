@@ -3,4 +3,4 @@ description: A minimal TypeScript Pulumi program
 runtime: nodejs
 config:
   simple-stack:petLength: 6
-  simple-stack:petNameSeparator: '--'
+  simple-stack:petNameSeparator: '_'
