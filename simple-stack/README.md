@@ -13,6 +13,7 @@ There are two stacks set up in Pulumi that map to given branches:
 * See the deployment in the UI.
 
 ## Git Push to Deploy
+* Go to Git repo/folder: https://github.com/pulumi-demos/pulumi-deployments/tree/main/simple-stack 
 * Push a change in the `simple-stack` folder to one of the branches noted above.
 * See the deployment action in the Pulumi UI.
 

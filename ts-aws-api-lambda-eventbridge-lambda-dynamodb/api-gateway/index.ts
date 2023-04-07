@@ -1,6 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
 import * as aws from "@pulumi/aws";
+import { readFileSync } from "fs";
 
 // Create a base string for naming.
 const nameBase = `${pulumi.getProject()}-${pulumi.getStack()}`
@@ -24,3 +25,6 @@ const stackTag = new pulumiService.StackTag("stackTag", {
 // Stack outputs  
 export const apiGatewayId = apigw.id
 export const apiGatewayName = apigw.name
+
+// Generate stack readme in the Pulumi UI
+export const readme = readFileSync("../README.md").toString();

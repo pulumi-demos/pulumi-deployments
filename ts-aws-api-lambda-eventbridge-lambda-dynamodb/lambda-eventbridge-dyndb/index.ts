@@ -1,5 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
+import { readFileSync } from "fs";
 
 import { apiGatewayId, apiGwStageName, appName, nameBase, readCapacity, writeCapacity } from "./config";
 
@@ -42,3 +43,6 @@ export const clickMeToSeeDynamoDbItems = pulumi.interpolate`https://console.aws.
 
 // The URL for New Relic Dashboard
 export const newReliceMonitorUrl = newRelicMonitor.url
+
+// Generate stack readme in the Pulumi UI
+export const readme = readFileSync("../README.md").toString();

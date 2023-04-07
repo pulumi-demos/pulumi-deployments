@@ -41,13 +41,14 @@ Note: The `deployment-lambda-eventbridge-dyndb` stack outputs some links to demo
 
 ## Github/PR Based Demo
 
-* In this repository, make a change to code in the `api-gateway` and/or `lambda-eventbridge-dyndb` folder(s) and push a branch named `dev`.
-* In the Pulumi Service UI see the deployment(s) running for the applicable project(s).
-* Create PR(s) to merge `dev` to `main`.
-* In the Pulumi Sevice UI see the deployment(s) running for the applicable project(s) to run previews against the `prod` stack.
-* Merge the PR(s).
-* In the Pulumi Service UI see the deployment(s) running for the applicable project(s) to run updates for the `prod` stack.
+* Go to the repo: https://github.com/pulumi-demos/pulumi-deployments/tree/main/ts-aws-api-lambda-eventbridge-lambda-dynamodb 
+* Go to the `lambda-eventbridge-dyndb` folder and make a change and push a branch named `dev`.
+  * An easy change is to edit the `Pulumi.yaml` file and modify one of the config values.
+* In the Pulumi Service UI see the deployment running for the `dev` stack in the `deployment-lambda-eventbridge-dyndb` project.
+* Create a PR to merge `dev` to `main`.
+* In the Pulumi Sevice UI see the deployment running for the `prod` stack to run previews against the `prod` stack.
+* Merge the PR.
+* In the Pulumi Service UI see the deployment running to update the `prod` stack. 
 * Be sure to destroy the stacks when done.
-  * **NOTE** The `dev` branch in the repo is deleted after merge to keep things clean. Therefore, you will need to destroy the `dev` stack from your workstation.
 
 
