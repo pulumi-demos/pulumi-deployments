@@ -22,7 +22,7 @@ export class Backend extends pulumi.ComponentResource {
         type: "N",
       }],
       hashKey: "timestamp",
-      readCapacity: 5,
+      readCapacity: 10,
       writeCapacity: 5,
     }, {parent: this});
 
