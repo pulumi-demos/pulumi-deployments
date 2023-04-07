@@ -12,8 +12,6 @@ Note: The `deployment-lambda-eventbridge-dyndb` stack outputs some links to demo
 
 ### Pulumi Service UI Focused Demo
 
-**NOTE** The `dev` branch in the repo is deleted after merge to keep things clean. Therefore, you can only trust that the `main` branch and, by extension, the `prod` stack is available to update or destroy.
-
 * Go to the `deployment-api-gateway/prod` stack and select Actions and run an action.
 * Go to the `deployment-lambda-eventbridge-dyndb/prod` stack and run an action.
 * Be sure to destroy the stacks when done.
