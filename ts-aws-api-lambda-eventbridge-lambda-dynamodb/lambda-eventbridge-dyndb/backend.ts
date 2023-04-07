@@ -3,6 +3,8 @@ import { Input, Output } from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
 interface BackendArgs {
+  readCapacity?: number;
+  writeCapacity?: number;
 };
 
 
@@ -10,10 +12,14 @@ export class Backend extends pulumi.ComponentResource {
   public readonly reader: Output<string>
   public readonly eventsTableName: Output<string>
 
-  constructor(name: string, args?: BackendArgs, opts?: pulumi.ComponentResourceOptions) {
+  constructor(name: string, args: BackendArgs, opts?: pulumi.ComponentResourceOptions) {
     super("custom:EventProcessor:Backend", name, args, opts);
 
     const nameBase = `${name}-be`
+
+    // Get optional inputs if set
+    const readCapacity = args.readCapacity ?? 5;
+    const writeCapacity = args.writeCapacity ?? 5;
 
     // DynamoDB Table
     const eventsTable = new aws.dynamodb.Table(`${nameBase}-events-table`, {
@@ -22,8 +28,8 @@ export class Backend extends pulumi.ComponentResource {
         type: "N",
       }],
       hashKey: "timestamp",
-      readCapacity: 5,
-      writeCapacity: 5,
+      readCapacity: readCapacity, 
+      writeCapacity: writeCapacity,
     }, {parent: this});
 
     // Backend Lambda Processor 

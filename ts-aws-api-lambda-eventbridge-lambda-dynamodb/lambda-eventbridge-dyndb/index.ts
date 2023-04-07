@@ -1,14 +1,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
 
-import { apiGatewayId, apiGwStageName, appName, nameBase } from "./config";
+import { apiGatewayId, apiGwStageName, appName, nameBase, readCapacity, writeCapacity } from "./config";
 
 import { Backend } from "./backend";
 import { Bus } from "./bus"
 import { Frontend } from "./frontend"
 import { Monitor } from "./new-relic"
 
-const backend = new Backend(nameBase)
+const backend = new Backend(nameBase, { 
+  readCapacity: readCapacity,
+  writeCapacity: writeCapacity,
+})
 
 const bus = new Bus(nameBase, {reader: backend.reader, appName: appName})
 

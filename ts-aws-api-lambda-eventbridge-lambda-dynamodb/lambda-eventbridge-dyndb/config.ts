@@ -10,8 +10,12 @@ const gwProject = config.require("apiGwProject")
 const gwStackName = `${org}/${gwProject}/${stack}`
 const gwStackRef = new pulumi.StackReference(gwStackName)
 export const apiGatewayId = gwStackRef.getOutput("apiGatewayId")
-export const apiGwStageName = stack
 
 export const nameBase = config.get("nameBase") || `${project}-${stack}`
-export const appName = config.get("appName") || "custom.EventProcessor"
+export const appName = config.get("appName") || `${stack}.EventProcessor`
+export const apiGwStageName = `${nameBase}-${stack}`
+
+export const readCapacity = config.getNumber("readCapacity")
+export const writeCapacity = config.getNumber("writeCapacity")
+
 
