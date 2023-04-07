@@ -1,9 +1,8 @@
 # AWS (API Gateway) -> Lambda -> Event Bridge -> Lambda -> DynamoDB
 
-## Repo Folder Contents
-
-- api-gateway: this is a Pulumi project to create an API gateway to which the lambda-eventbridge-dynamodb project connects. 
-- lambda-eventbridge-dynamodb: this is the main project that stands up the system using the API GW created by the other project and where the bulk of the demo is run.
+This demo folder contains two projects:
+- `api-gateway`: this is a Pulumi project to create an API gateway to which the lambda-eventbridge-dynamodb project connects. 
+- `lambda-eventbridge-dynamodb`: this is the main project that stands up the system using the API GW created by the other project and where the bulk of the demo is run.
 
 ## Demos
 
