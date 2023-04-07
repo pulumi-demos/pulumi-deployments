@@ -19,7 +19,7 @@ Note: The `deployment-lambda-eventbridge-dyndb` stack outputs some links to demo
 ### Github/PR Based Demo
 
 * Go to the repo: https://github.com/pulumi-demos/pulumi-deployments/tree/main/ts-aws-api-lambda-eventbridge-lambda-dynamodb 
-* Go to the `lambda-eventbridge-dyndb` folder and make a change and push a branch named `dev`.
+* Go to the `lambda-eventbridge-dyndb` folder and make a change to the `dev` branch.
   * An easy change is to edit the `Pulumi.yaml` file and modify one of the config values.
 * In the Pulumi Service UI see the deployment running for the `dev` stack in the `deployment-lambda-eventbridge-dyndb` project.
 * Create a PR to merge `dev` to `main`.
