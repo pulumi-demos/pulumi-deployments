@@ -1,4 +1,5 @@
 import * as random from "@pulumi/random";
+import { readFileSync } from "fs";
 
 import * as config from "./config";
 
@@ -13,3 +14,8 @@ const randomPet = new random.RandomPet("random-pet", {
 });
 
 export const petName = randomPet.id;
+
+// Generate stack readme in the Pulumi UI
+export const readme = readFileSync("./README.md").toString();
+
+
