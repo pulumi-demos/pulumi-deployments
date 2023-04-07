@@ -52,6 +52,3 @@ The goal is to stand up an infrastructure that demonstrates the following use-ca
 - Lambda #2 is triggered by EventBridge and writes data to the DynamoDB.
 - I want to spin up a new relic dashboard for the solution.
   - Note: Be sure to set new relic credentials in stack config or as environment variables.
-
-
-
