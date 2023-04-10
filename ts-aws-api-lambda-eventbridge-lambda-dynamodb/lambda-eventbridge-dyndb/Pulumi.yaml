@@ -4,5 +4,5 @@ description: A TS Pulumi project that deploys a system consisting of a lambda->e
 config:
   aws:region: us-east-2
   deployment-lambda-eventbridge-dyndb:apiGwProject: deployment-api-gateway
-  deployment-lambda-eventbridge-dyndb:readCapacity: 5
-  deployment-lambda-eventbridge-dyndb:writeCapacity: 5
+  deployment-lambda-eventbridge-dyndb:readCapacity: 4
+  deployment-lambda-eventbridge-dyndb:writeCapacity: 4
