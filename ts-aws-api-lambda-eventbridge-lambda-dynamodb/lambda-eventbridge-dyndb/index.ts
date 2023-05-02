@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
 import { readFileSync } from "fs";
 
-import { apiGatewayId, apiGwStageName, appName, nameBase, readCapacity, writeCapacity } from "./config";
+import { apiGatewayId, apiGwStageName, appName, baseTags, nameBase, readCapacity, writeCapacity } from "./config";
 
 import { Backend } from "./backend";
 import { Bus } from "./bus"
@@ -12,15 +12,21 @@ import { Monitor } from "./new-relic"
 const backend = new Backend(nameBase, { 
   readCapacity: readCapacity,
   writeCapacity: writeCapacity,
+  tags: baseTags, 
 })
 
-const bus = new Bus(nameBase, {reader: backend.reader, appName: appName})
+const bus = new Bus(nameBase, {
+  reader: backend.reader, 
+  appName: appName,
+  tags: baseTags,
+})
 
 const frontend = bus.arn.apply(arn => new Frontend(nameBase, {
   busArn: arn, 
   appName: appName, 
   apiGwId: apiGatewayId,
   apiGwStageName: apiGwStageName,
+  tags: baseTags, 
 }))
 
 const newRelicMonitor = new Monitor(nameBase, {uri: frontend.url})
