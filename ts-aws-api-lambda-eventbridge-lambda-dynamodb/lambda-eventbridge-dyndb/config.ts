@@ -19,8 +19,8 @@ export const readCapacity = config.getNumber("readCapacity")
 export const writeCapacity = config.getNumber("writeCapacity")
 
 export const baseTags = {
-  "cost-center": project,
-  "stack": stack
+  "team": "platform",
+  "env": stack
 }
 
 
