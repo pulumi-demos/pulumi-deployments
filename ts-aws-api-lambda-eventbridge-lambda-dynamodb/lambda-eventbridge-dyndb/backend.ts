@@ -5,6 +5,7 @@ import * as aws from "@pulumi/aws";
 interface BackendArgs {
   readCapacity?: number;
   writeCapacity?: number;
+  tags: aws.Tags
 };
 
 
@@ -30,6 +31,7 @@ export class Backend extends pulumi.ComponentResource {
       hashKey: "timestamp",
       readCapacity: readCapacity, 
       writeCapacity: writeCapacity,
+      tags: args.tags,
     }, {parent: this});
 
     // Backend Lambda Processor 
@@ -49,6 +51,7 @@ export class Backend extends pulumi.ComponentResource {
           },
         ],
       },
+      tags: args.tags
     }, {parent: this});
 
     // Attach policies to the Lambda role created above
@@ -75,6 +78,7 @@ export class Backend extends pulumi.ComponentResource {
         runtime: "nodejs12.x",
         role: lambdaRole.arn,
         handler: "index.handler",
+        tags: args.tags
       }, {parent: this});
     })
 

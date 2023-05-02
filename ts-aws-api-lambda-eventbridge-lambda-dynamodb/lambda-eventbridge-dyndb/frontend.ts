@@ -7,6 +7,7 @@ interface FrontendArgs {
   appName: Input<string>;
   apiGwId: Input<string>;
   apiGwStageName: Input<string> | string;
+  tags: aws.Tags;
 };
 
 export class Frontend extends pulumi.ComponentResource {
@@ -41,6 +42,7 @@ export class Frontend extends pulumi.ComponentResource {
           },
         ],
       },
+      tags: args.tags
     }, {parent:this});
 
     // Attach policies to the Lambda role created above
@@ -67,6 +69,7 @@ export class Frontend extends pulumi.ComponentResource {
       runtime: "nodejs12.x",
       role: lambdaRole.arn,
       handler: "index.handler",
+      tags: args.tags,
     }, {parent:this});
 
     // Give API Gateway permissions to invoke the Lambda
@@ -103,6 +106,7 @@ export class Frontend extends pulumi.ComponentResource {
         },
       ],
       autoDeploy: true,
+      tags: args.tags,
     }, {parent:this});
 
     this.url = pulumi.interpolate`${stage.invokeUrl}/${eventSource}`
