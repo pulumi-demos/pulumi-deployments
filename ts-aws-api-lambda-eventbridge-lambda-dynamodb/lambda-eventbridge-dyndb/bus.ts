@@ -5,6 +5,7 @@ import * as aws from "@pulumi/aws";
 interface BusArgs {
   reader: Input<string>;
   appName: string;
+  tags: aws.Tags;
 };
 
 
@@ -20,7 +21,7 @@ export class Bus extends pulumi.ComponentResource {
 
     // Event Bus
     const busName = `${nameBase}-eventBus`
-    const eventBus = new aws.cloudwatch.EventBus(busName,{},{parent:this});
+    const eventBus = new aws.cloudwatch.EventBus(busName,{tags: args.tags},{parent:this});
 
     const ruleName = `${nameBase}-eventRule`
     const eventRule = new aws.cloudwatch.EventRule(ruleName, {
@@ -32,6 +33,7 @@ export class Bus extends pulumi.ComponentResource {
         ]
       }
       `,
+      tags: args.tags,
     }, {parent:this});
 
     const eventTarget = new aws.cloudwatch.EventTarget(`${nameBase}-eventTarget`, {
