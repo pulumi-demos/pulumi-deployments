@@ -75,7 +75,7 @@ export class Backend extends pulumi.ComponentResource {
           `),
           ".": new pulumi.asset.FileArchive("./be-lambda-app"),
         }),
-        runtime: "nodejs12.x",
+        runtime: "nodejs16.x",
         role: lambdaRole.arn,
         handler: "index.handler",
         tags: args.tags
