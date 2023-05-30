@@ -66,7 +66,7 @@ export class Frontend extends pulumi.ComponentResource {
         `),
         ".": new pulumi.asset.FileArchive("./fe-lambda-app"),
       }),
-      runtime: "nodejs18.x",
+      runtime: "nodejs16.x",
       role: lambdaRole.arn,
       handler: "index.handler",
       tags: args.tags,
