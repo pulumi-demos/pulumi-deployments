@@ -19,7 +19,7 @@ export class Backend extends pulumi.ComponentResource {
     const nameBase = `${name}-be`
 
     // Get optional inputs if set
-    const readCapacity = args.readCapacity ?? 10;
+    const readCapacity = args.readCapacity ?? 5;
     const writeCapacity = args.writeCapacity ?? 5;
 
     // DynamoDB Table
