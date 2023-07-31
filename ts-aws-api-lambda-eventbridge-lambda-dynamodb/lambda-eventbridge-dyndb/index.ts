@@ -2,25 +2,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
 import { readFileSync } from "fs";
 
+// Simple typescript module to keep code more readable and maintainable
 import { apiGatewayId, apiGwStageName, appName, baseTags, nameBase, readCapacity, writeCapacity } from "./config";
 
+// Reusable component resources classes 
 import { Backend } from "./backend";
 import { Bus } from "./bus"
 import { Frontend } from "./frontend"
 import { Monitor } from "./new-relic"
 
+// Deploy the "backend"
 const backend = new Backend(nameBase, { 
   readCapacity: readCapacity,
   writeCapacity: writeCapacity,
   tags: baseTags, 
 })
 
+// Deploy the "bus"
 const bus = new Bus(nameBase, {
   reader: backend.reader, 
   appName: appName,
   tags: baseTags,
 })
 
+// Deploy the "frontend"
 const frontend = bus.arn.apply(arn => new Frontend(nameBase, {
   busArn: arn, 
   appName: appName, 
@@ -29,8 +34,10 @@ const frontend = bus.arn.apply(arn => new Frontend(nameBase, {
   tags: baseTags, 
 }))
 
+// Deploy a new relic monitor
 const newRelicMonitor = new Monitor(nameBase, {uri: frontend.url})
 
+// Add a Pulumi Cloud stack tag
 const stackTag = new pulumiService.StackTag("stackTag", {
   name: "DeploymentsDemo",
   value: "LambdaEventBridgeDynamoDb",
@@ -38,6 +45,8 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   project: pulumi.getProject(),
   stack: pulumi.getStack()
 });
+
+// Stack outputs ...
 
 // The Frontend URL to hit that causes events
 export const clickMeToCreateEvents = frontend.url
