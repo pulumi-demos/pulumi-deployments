@@ -4,5 +4,5 @@ description: A TS Pulumi project that deploys an AWS API Gateway.
 config:
   aws:region: us-east-1
   deployment-api-gateway:downstreamProject: deployment-lambda-eventbridge-dyndb
-  deployment-api-gateway:gwDescription: "Deployment demo API Aug01"
+  deployment-api-gateway:gwDescription: "Deployment demo API Aug01.B"
 
