@@ -34,7 +34,7 @@ const stackTag = new pulumiService.StackTag("stackTag", {
 });
 
 // Create an autodeploy relationship to update downstream stacks automatically.
-const deploy = new autodeploy.AutoDeployer("auto-deployer", {
+export const deploy = new autodeploy.AutoDeployer("auto-deployer", {
   organization: org,
   project: proj,
   stack: stack,
