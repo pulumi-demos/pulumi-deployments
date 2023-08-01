@@ -47,16 +47,16 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   stack: pulumi.getStack()
 });
 
-// Register this stack as part of the autodeploy tree.
-// This stack is a leaf and doesn't trigger any other stack deployments.
-// See the colocated api-gateway project for it's autodeploy resource that triggers this
-// stack when updated.
-export const deploy = new autodeploy.AutoDeployer("auto-deployer", {
-  organization: pulumi.getOrganization(),
-  project: pulumi.getProject(),
-  stack: pulumi.getStack(),
-  downstreamRefs: []
-});
+// // Register this stack as part of the autodeploy tree.
+// // This stack is a leaf and doesn't trigger any other stack deployments.
+// // See the colocated api-gateway project for it's autodeploy resource that triggers this
+// // stack when updated.
+// export const deploy = new autodeploy.AutoDeployer("auto-deployer", {
+//   organization: pulumi.getOrganization(),
+//   project: pulumi.getProject(),
+//   stack: pulumi.getStack(),
+//   downstreamRefs: []
+// });
 
 // Stack outputs ...
 
