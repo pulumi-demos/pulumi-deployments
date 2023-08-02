@@ -29,11 +29,13 @@ Note: The `deployment-lambda-eventbridge-dyndb` stack outputs some links to demo
 * Be sure to destroy the stacks when done.
 
 ### Multi-stack Orchestration
-A successful update of the api-gateway stack will automatically trigger an update of the lambda-eventbridge stack.  
+A successful update/destroy of the api-gateway stack will automatically trigger an update/destroy of the lambda-eventbridge stack.  
 The update can occur via any of the mechanisms described above (i.e Pulumi Cloud UI or Github/PR flow)
+
 An example flow is:
 
 * Modify some config in the api-gateway `Pulumi.yaml` file.
+  * Changing `nameBase` is fun since it means a brand new api-gateway is created and so the dependent stack has to be updated to consume the id for the new gateway.
 * Push the change to the `dev` branch.
 * This will trigger an update of the api-gateway Dev stack.
 * Once complete, you should see an update of the lambda-eventbridge Dev stack.
