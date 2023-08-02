@@ -1,6 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
-import * as autodeploy from "@pulumi/auto-deploy";
 import * as aws from "@pulumi/aws";
 import { readFileSync } from "fs";
 
@@ -32,14 +31,6 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   project: proj,
   stack: stack
 });
-
-// Create an autodeploy relationship to update downstream stacks automatically.
-// const deploy = new autodeploy.AutoDeployer("auto-deployer", {
-//   organization: org,
-//   project: proj,
-//   stack: stack,
-//   downstreamRefs: [`${downstreamProject}/${stack}`]
-// });
 
 // Stack outputs  
 export const apiGatewayId = apigw.id

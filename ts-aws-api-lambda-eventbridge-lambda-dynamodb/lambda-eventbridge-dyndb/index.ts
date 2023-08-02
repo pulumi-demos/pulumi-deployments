@@ -1,6 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
-import * as autodeploy from "@pulumi/auto-deploy";
 import { readFileSync } from "fs";
 
 // Simple typescript module to keep code more readable and maintainable
@@ -46,17 +45,6 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   project: pulumi.getProject(),
   stack: pulumi.getStack()
 });
-
-// // Register this stack as part of the autodeploy tree.
-// // This stack is a leaf and doesn't trigger any other stack deployments.
-// // See the colocated api-gateway project for it's autodeploy resource that triggers this
-// // stack when updated.
-// export const deploy = new autodeploy.AutoDeployer("auto-deployer", {
-//   organization: pulumi.getOrganization(),
-//   project: pulumi.getProject(),
-//   stack: pulumi.getStack(),
-//   downstreamRefs: []
-// });
 
 // Stack outputs ...
 
