@@ -34,13 +34,12 @@ const stackTag = new pulumiService.StackTag("stackTag", {
 });
 
 // Create an autodeploy relationship to update downstream stacks automatically.
-// export 
-const deploy = new autodeploy.AutoDeployer("auto-deployer", {
-  organization: org,
-  project: proj,
-  stack: stack,
-  downstreamRefs: [`${downstreamProject}/${stack}`]
-});
+// const deploy = new autodeploy.AutoDeployer("auto-deployer", {
+//   organization: org,
+//   project: proj,
+//   stack: stack,
+//   downstreamRefs: [`${downstreamProject}/${stack}`]
+// });
 
 // Stack outputs  
 export const apiGatewayId = apigw.id
