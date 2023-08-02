@@ -3,6 +3,6 @@ runtime: nodejs
 description: A TS Pulumi project that deploys an AWS API Gateway.
 config:
   aws:region: us-east-1
-  deployment-api-gateway:nameBase: deployment-gw
+  deployment-api-gateway:nameBase: deploy-demo-gw
   deployment-api-gateway:gwDescription: "Deployment demo API"
 
