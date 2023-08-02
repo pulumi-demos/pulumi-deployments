@@ -4,11 +4,8 @@ import * as aws from "@pulumi/aws";
 import { readFileSync } from "fs";
 
 const config = new pulumi.Config()
-const downstreamProject = config.require("downstreamProject")
-const gwDesc = config.require("gwDescription") 
-
-// Create a base string for naming.
-const nameBase = `${pulumi.getProject()}-${pulumi.getStack()}`
+const nameBase = config.get("nameBase") || `${pulumi.getProject()}-${pulumi.getStack()}` 
+const gwDesc = config.get("gwDescription") || "Deployment demo API GW"
 
 // Set up an API Gateway
 const apiGwName = `${nameBase}-apigw`

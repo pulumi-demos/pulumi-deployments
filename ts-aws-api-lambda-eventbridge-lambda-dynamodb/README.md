@@ -28,13 +28,23 @@ Note: The `deployment-lambda-eventbridge-dyndb` stack outputs some links to demo
 * In the Pulumi Service UI see the deployment running to update the `prod` stack. 
 * Be sure to destroy the stacks when done.
 
+### Multi-stack Orchestration
+A successful update of the api-gateway stack will automatically trigger an update of the lambda-eventbridge stack.  
+The update can occur via any of the mechanisms described above (i.e Pulumi Cloud UI or Github/PR flow)
+An example flow is:
+
+* Modify some config in the api-gateway `Pulumi.yaml` file.
+* Push the change to the `dev` branch.
+* This will trigger an update of the api-gateway Dev stack.
+* Once complete, you should see an update of the lambda-eventbridge Dev stack.
+* Creating and merging a PR to the `main` branch will then trigger an update of the api-gateway Prod stack followed by an update of the lambda-eventbridge Prod stack.
+
 ## More Information about the Repo and Projects
 
 ### Main Demo Points
 
-* Shows a case where you have stack references.
-  * This isn't that interesting yet since the user is ultimately responsible for orchestrating the two stacks.
-  * However, when https://github.com/pulumi/service-requests/issues/181 is addressed, this will be more interesting.
+* Shows a case where you have stack references and stack dependencies.
+  * A successful update of the api-gateway stack triggers an update of the lambda-eventbridge stack
 * Uses AWS OIDC to connect to AWS.
 * Uses path filters to limit Deployments only to code changes in the folders applicable for the given stacks.
 
