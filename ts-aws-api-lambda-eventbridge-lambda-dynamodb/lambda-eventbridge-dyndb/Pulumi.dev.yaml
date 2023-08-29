@@ -1,4 +1,2 @@
 config:
-  deployment-lambda-eventbridge-dyndb:password:
-    secure: AAABADcc+c0RuW+J5h6gKd3XIqffgZOorsqIWm1Sdd/omXPDJYjihjN8XQ==
-  deployment-lambda-eventbridge-dyndb:readCapacity: "25"
+
