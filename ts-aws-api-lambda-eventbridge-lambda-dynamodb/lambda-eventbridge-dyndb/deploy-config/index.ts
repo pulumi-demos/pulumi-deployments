@@ -20,7 +20,13 @@ const my_settings = new pulumiservice.DeploymentSettings("my_settings", {
                 sessionName: "pulumi-demo-deploy",
             },
         },
-        options: {},
+        options: {
+            skipInstallDependencies: true
+        },
+        preRunCommands: [
+            "cd /tmp",
+            "echo hello world"
+        ]
     },
     organization: "demo",
     project: "deployment-lambda-eventbridge-dyndb",
