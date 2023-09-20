@@ -1,12 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as pulumicloud from "@pulumi/pulumiservice";
-
-import * as pulumi from "@pulumi/pulumi";
 import * as pulumiservice from "@pulumi/pulumiservice";
 
 const my_settings = new pulumiservice.DeploymentSettings("my_settings", {
     executorContext: {
-        executorImage: "pulumi/pulumi-nodejs",
+        // executorImage: "pulumi/pulumi-nodejs",
+        executorImage: "ghcr.io/meltano/pulumi:latest"
     },
     github: {
         deployCommits: true,
