@@ -13,9 +13,13 @@ const randomPet = new random.RandomPet("random-pet", {
   separator: nameSeparator
 });
 
+const anotherRandom = new random.RandomPet("random-pet2", {
+  length: nameLength,
+  prefix: namePrefix,
+  separator: nameSeparator
+});
+
 export const petName = randomPet.id;
 
 // Generate stack readme in the Pulumi UI
 export const readme = readFileSync("./README.md").toString();
-
-
