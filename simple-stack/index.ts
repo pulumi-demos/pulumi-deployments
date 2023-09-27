@@ -3,9 +3,9 @@ import { readFileSync } from "fs";
 
 import * as config from "./config";
 
-const nameLength = config.petLength
-const namePrefix = config.petNamePrefix
-const nameSeparator = config.petNameSeparator
+const nameLength = config.petLength;
+const namePrefix = config.petNamePrefix;
+const nameSeparator = config.petNameSeparator;
 
 const randomPet = new random.RandomPet("random-pet", {
   length: nameLength,
