@@ -1,0 +1,62 @@
+name: k8s-guestbook-app-rds
+runtime: yaml
+description: A YAML version of the guestbook-app-py project
+config:
+  k8sProject:
+    default: aws-eks-base-infra-py
+  org:
+    default: demo
+outputs:
+  bucketId: ${bucket.id}
+  frontEndUrl: http://${frontend.frontEndIp}
+resources:
+  # Create a stack reference that points at the base infrastructure stack.
+  baseInfraStack:
+    properties:
+      name: ${org}/${k8sProject}/${pulumi.stack}
+    type: pulumi:pulumi:StackReference
+  # Create a bucket just to show something rather familiar
+  bucket:
+    properties:
+      acl: private
+    type: aws:s3:Bucket
+  frontend:
+    options:
+      provider: ${k8sProvider}
+    properties:
+      image: pulumi/guestbook-php-redis
+      namespace: ${guestbook-yaml-ns.metadata.name}
+      ports: [80]
+      replicas: 3
+      serviceType: LoadBalancer
+    type: k8s-servicedeployment:ServiceDeployment
+  # Create K8s namespace in which to deploy the services
+  guestbook-yaml-ns:
+    options:
+      provider: ${k8sProvider}
+    type: kubernetes:core/v1:Namespace
+  # Create a K8s provider using the kubeconfig retrieved as a stack reference above.
+  k8sProvider:
+    properties:
+      deleteUnreachable: true
+      kubeconfig: ${kubeconfig}
+    type: pulumi:providers:kubernetes
+  # Create K8s deployments using the custom k8s-servicedeployment multilanguage package
+  redis-leader:
+    options:
+      provider: ${k8sProvider}
+    properties:
+      image: redis
+      namespace: ${guestbook-yaml-ns.metadata.name}
+      ports: [6379]
+    type: k8s-servicedeployment:ServiceDeployment
+  redis-replica:
+    options:
+      provider: ${k8sProvider}
+    properties:
+      image: pulumi/guestbook-redis-replica
+      namespace: ${guestbook-yaml-ns.metadata.name}
+      ports: [6379]
+    type: k8s-servicedeployment:ServiceDeployment
+variables:
+  kubeconfig: ${baseInfraStack.outputs["kubeconfig"]}
