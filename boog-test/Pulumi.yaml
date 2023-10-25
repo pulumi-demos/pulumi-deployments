@@ -1,0 +1,9 @@
+name: aws-py-wordpress-fargate-rds-boog
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A minimal AWS Python Pulumi program
+config:
+  aws:region:
+    value: us-east-1
