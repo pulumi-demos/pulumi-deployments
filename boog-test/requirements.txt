@@ -1,4 +1,0 @@
-pulumi>=3.33.0,<4.0.0
-pulumi-aws>=5.6.0,<6.0.0
-pulumi-random>=4.7.0,<5.0.0
-demo-components @ git+https://github.com/pulumi-demos/examples.git#subdirectory=python/components
