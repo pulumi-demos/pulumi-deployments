@@ -1,0 +1,10 @@
+config:
+  aws:region: us-west-2
+  kubernetes-aws-typescript-boog-demo:desiredClusterSize: "1"
+  kubernetes-aws-typescript-boog-demo:eksNodeInstanceType: t3.medium
+  kubernetes-aws-typescript-boog-demo:maxClusterSize: "3"
+  kubernetes-aws-typescript-boog-demo:minClusterSize: "1"
+  kubernetes-aws-typescript-boog-demo:vpcNetworkCidr: 10.0.0.0/16
+  pulumi:template: kubernetes-aws-typescript
+environment:
+  - boog-test
