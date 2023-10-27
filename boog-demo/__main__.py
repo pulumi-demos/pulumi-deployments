@@ -25,7 +25,7 @@ db_password=config.get_secret('db_password')
 if not db_password:
     password=random.RandomPassword('db_password',
         length=16,
-        special=True,
+        special=False,
         )
     # Pulumi knows this provider is used to create a password and thus automatically protects it going forward.
     db_password=password.result
