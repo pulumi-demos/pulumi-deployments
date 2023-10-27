@@ -46,6 +46,25 @@ const stackTag = new pulumiService.StackTag("stackTag", {
   stack: pulumi.getStack()
 });
 
+// Use this for Review Stacks
+const deploymentSettings = new pulumiservice.DeploymentSettings("deploymentSettings", {
+	organization: pulumi.getOrganization(),
+	project: pulumi.getProject(),
+	stack: pulumi.getStack(),
+	github: {
+		deployCommits: true,
+		previewPullRequests: true,
+		pullRequestTemplate: true,
+		repository: "pulumi-demos/pulumi-deployments",
+	},
+	sourceContext: {
+		git: {
+			branch: "refs/heads/dev",
+			repoDir: "ts-aws-api-lambda-eventbridge-lambda-dynamodb",
+		},
+	},
+});
+
 // Stack outputs ...
 
 // The Frontend URL to hit that causes events
