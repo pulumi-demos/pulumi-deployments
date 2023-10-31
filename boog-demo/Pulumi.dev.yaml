@@ -1,6 +1,6 @@
 config:
   aws:region: us-east-1
-  kubernetes-aws-typescript-boog-demo:desiredClusterSize: "2"
+  kubernetes-aws-typescript-boog-demo:desiredClusterSize: "1"
   kubernetes-aws-typescript-boog-demo:eksNodeInstanceType: t3.medium
   kubernetes-aws-typescript-boog-demo:maxClusterSize: "3"
   kubernetes-aws-typescript-boog-demo:minClusterSize: "1"
