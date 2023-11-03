@@ -1,7 +1,0 @@
-*.pyc
-venv/
-build/
-components.*/
-dist/
-__pycache__/
-kubeconfig.* 

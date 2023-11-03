@@ -1,9 +1,0 @@
-name: azure-aks-base-infra-py-mitch-deleteme
-runtime:
-  name: python
-  options:
-    virtualenv: venv
-description: Pulumi base project to deploy AKS base infrastructure
-config:
-  azure-native:location:
-    value: CentralUS
