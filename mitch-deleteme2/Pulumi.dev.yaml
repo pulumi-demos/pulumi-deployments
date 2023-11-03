@@ -1,0 +1,4 @@
+config:
+  pulumi:template: https://github.com/pulumi-demos/examples/python/azure-aks-base-infra-py
+environment:
+  - azure-oidc
