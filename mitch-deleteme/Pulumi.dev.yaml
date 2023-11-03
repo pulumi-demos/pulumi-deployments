@@ -1,0 +1,5 @@
+config:
+  azure-native:location: CentralUS
+  pulumi:template: azure-typescript
+environment:
+  - azure-oidc
