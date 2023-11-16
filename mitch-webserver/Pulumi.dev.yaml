@@ -1,5 +1,0 @@
-environment:
-- aws-oidc
-config:
-  pulumi:template: https://github.com/pulumi-demos/examples/python/aws-webserver
-  aws-webserver:instance_count: 1
