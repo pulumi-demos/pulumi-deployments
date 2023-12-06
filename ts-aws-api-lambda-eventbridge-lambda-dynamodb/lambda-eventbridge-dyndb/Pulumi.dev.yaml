@@ -1,2 +1,2 @@
 config:
-
+  deployment-lambda-eventbridge-dyndb:readCapacity: "45"
