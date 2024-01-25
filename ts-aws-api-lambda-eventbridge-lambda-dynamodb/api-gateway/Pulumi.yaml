@@ -2,7 +2,7 @@ name: deployment-api-gateway
 runtime: nodejs
 description: A TS Pulumi project that deploys an AWS API Gateway.
 config:
-  aws:region: us-east-1
+  aws:region: us-east-2
   deployment-api-gateway:nameBase: demo-deploy-2
-  deployment-api-gateway:gwDescription: "Deployment demo API dev test"
+  deployment-api-gateway:gwDescription: "Deployment demo API dev test check"
 
