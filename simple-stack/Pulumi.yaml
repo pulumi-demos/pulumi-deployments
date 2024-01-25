@@ -1,4 +1,4 @@
-name: simple-stack
+name: simple-stack for alayshia
 description: A minimal TypeScript Pulumi program
 runtime: nodejs
 config:
