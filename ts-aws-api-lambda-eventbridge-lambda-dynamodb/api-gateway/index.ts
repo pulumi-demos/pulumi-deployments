@@ -3,6 +3,8 @@ import * as pulumiService from "@pulumi/pulumiservice";
 import * as aws from "@pulumi/aws";
 import { readFileSync } from "fs";
 
+console.log('Hello world!');
+
 const config = new pulumi.Config()
 const nameBase = config.get("nameBase") || `${pulumi.getProject()}-${pulumi.getStack()}` 
 const gwDesc = config.get("gwDescription") || "Deployment demo API GW"
