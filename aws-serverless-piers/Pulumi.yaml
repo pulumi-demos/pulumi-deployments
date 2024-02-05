@@ -1,0 +1,7 @@
+name: piers-serverless
+runtime: nodejs
+description: A TypeScript program to deploy a serverless application on AWS
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://github.com/pulumi-demos/private-templates/typescript/aws-serverless
