@@ -1,3 +1,4 @@
 config:
   aws:region: eu-west-1
+  aws:skipCredentialsValidation: true
   pulumi:template: https://github.com/pulumi-demos/private-templates/typescript/aws-serverless
