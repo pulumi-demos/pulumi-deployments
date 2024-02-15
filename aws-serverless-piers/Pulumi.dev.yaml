@@ -1,5 +1,3 @@
 config:
   aws:region: eu-west-1
   pulumi:template: https://github.com/pulumi-demos/private-templates/typescript/aws-serverless
-environment:
-  - aws-oidc
