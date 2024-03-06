@@ -1,6 +1,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as pulumiService from "@pulumi/pulumiservice";
 import { readFileSync } from "fs";
+import * as aws from "@pulumi/aws"
+
 
 // Simple typescript module to keep code more readable and maintainable
 import { apiGatewayId, apiGwStageName, appName, baseTags, nameBase, readCapacity, writeCapacity } from "./config";
