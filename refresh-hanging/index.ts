@@ -5,4 +5,6 @@ const pw = new random.RandomPassword("password", {
     length: 21
 })
 
+console.log("refresh running")
+
 export const password = pw.result;
