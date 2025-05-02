@@ -1,10 +1,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
 
-const pw = new random.RandomPassword("password", {
-    length: 21
-})
+for (let i: number = 0; i<=10; i++) {
+    const pw = new random.RandomPassword(`-${i}`, {
+        length: 21
+    })
+}
 
-console.log("program running")
 
-export const password = pw.result;
+
