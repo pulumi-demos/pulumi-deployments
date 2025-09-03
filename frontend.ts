@@ -64,7 +64,7 @@ export class Frontend extends pulumi.ComponentResource {
             eventSource: "${eventSource}"
           }
         `),
-        ".": new pulumi.asset.FileArchive("./fe-lambda-app"),
+        ".": new pulumi.asset.FileArchive("./ts-aws-api-lambda-eventbridge-lambda-dynamodb/lambda-eventbridge-dyndb/fe-lambda-app"),
       }),
       runtime: "nodejs22.x",
       role: lambdaRole.arn,

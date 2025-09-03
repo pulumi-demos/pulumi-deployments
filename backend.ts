@@ -29,12 +29,12 @@ export class Backend extends pulumi.ComponentResource {
         type: "N",
       }],
       hashKey: "timestamp",
-      readCapacity: readCapacity, 
+      readCapacity: readCapacity,
       writeCapacity: writeCapacity,
       tags: args.tags,
     }, {parent: this});
 
-    // Backend Lambda Processor 
+    // Backend Lambda Processor
     const lambdaRole = new aws.iam.Role(`${nameBase}-lambdarole`, {
       assumeRolePolicy: {
        Version: "2012-10-17",
@@ -73,7 +73,7 @@ export class Backend extends pulumi.ComponentResource {
             tableName: "${name}",
           }
           `),
-          ".": new pulumi.asset.FileArchive("./be-lambda-app"),
+          ".": new pulumi.asset.FileArchive("./ts-aws-api-lambda-eventbridge-lambda-dynamodb/lambda-eventbridge-dyndb/be-lambda-app"),
         }),
         runtime: "nodejs22.x",
         role: lambdaRole.arn,
