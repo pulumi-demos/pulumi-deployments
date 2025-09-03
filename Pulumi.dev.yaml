@@ -1,0 +1,7 @@
+environment:
+  - cloud-access/aws-oidc
+config:
+  aws:region: us-east-1
+  deployment-lambda-eventbridge-dyndb:apiGwProject: deployment-api-gateway
+  deployment-lambda-eventbridge-dyndb:readCapacity: 25
+  deployment-lambda-eventbridge-dyndb:writeCapacity: 20
