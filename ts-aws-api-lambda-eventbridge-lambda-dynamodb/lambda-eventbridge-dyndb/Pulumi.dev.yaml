@@ -1,0 +1,13 @@
+config:
+  # AWS Configuration
+  aws:region: us-west-2
+  
+  # Project-specific configuration
+  deployment-lambda-eventbridge-dyndb:apiGwProject: deployment-api-gateway
+  deployment-lambda-eventbridge-dyndb:readCapacity: 5
+  deployment-lambda-eventbridge-dyndb:writeCapacity: 5
+  deployment-lambda-eventbridge-dyndb:nameBase: lambda-eventbridge-dev
+  deployment-lambda-eventbridge-dyndb:appName: dev.EventProcessor
+
+environment:
+  - aws-oidc
