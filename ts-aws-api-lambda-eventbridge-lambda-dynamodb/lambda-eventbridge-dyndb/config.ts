@@ -20,7 +20,8 @@ export const writeCapacity = config.getNumber("writeCapacity")
 
 export const baseTags = {
   "team": "platform",
-  "env": stack
+  "env": stack,
+  "Owner": "platform-team"
 }
 
 
